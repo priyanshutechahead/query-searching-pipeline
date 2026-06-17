@@ -1,0 +1,738 @@
+[
+  {
+    "country": "India",
+    "seasons": [
+      "Winter",
+      "Spring",
+      "Summer"
+    ],
+    "FloraFauna": [
+      "Rare Birds",
+      "Tropical Rainforests"
+    ],
+    "Landscape": [
+      "Mountains",
+      "Deserts",
+      "Beaches"
+    ]
+  },
+  {
+    "country": "Japan",
+    "seasons": [
+      "Spring",
+      "Summer",
+      "Autumn",
+      "Winter"
+    ],
+    "FloraFauna": [
+      "Rare Birds",
+      "Temperate Forest Flora"
+    ],
+    "Landscape": [
+      "Mountains"
+    ]
+  },
+  {
+    "country": "Thailand",
+    "seasons": [
+      "Spring",
+      "Summer"
+    ],
+    "FloraFauna": [
+      "Marine Life",
+      "Tropical Rainforests"
+    ],
+    "Landscape": [
+      "Beaches",
+      "Mountains"
+    ]
+  },
+  {
+    "country": "Indonesia",
+    "seasons": [
+      "Summer",
+      "Spring"
+    ],
+    "FloraFauna": [
+      "Marine Life",
+      "Tropical Rainforests"
+    ],
+    "Landscape": [
+      "Beaches"
+    ]
+  },
+  {
+    "country": "Malaysia",
+    "seasons": [
+      "Summer",
+      "Spring"
+    ],
+    "FloraFauna": [
+      "Marine Life",
+      "Tropical Rainforests"
+    ],
+    "Landscape": [
+      "Beaches",
+      "Mountains"
+    ]
+  },
+  {
+    "country": "Singapore",
+    "seasons": [
+      "Summer"
+    ],
+    "FloraFauna": [
+      "Marine Life"
+    ],
+    "Landscape": [
+      "Beaches"
+    ]
+  },
+  {
+    "country": "Vietnam",
+    "seasons": [
+      "Spring",
+      "Summer",
+      "Autumn",
+      "Winter"
+    ],
+    "FloraFauna": [
+      "Marine Life",
+      "Rare Birds"
+    ],
+    "Landscape": [
+      "Beaches",
+      "Mountains"
+    ]
+  },
+  {
+    "country": "South Korea",
+    "seasons": [
+      "Spring",
+      "Summer",
+      "Autumn",
+      "Winter"
+    ],
+    "FloraFauna": [
+      "Rare Birds"
+    ],
+    "Landscape": [
+      "Mountains"
+    ]
+  },
+  {
+    "country": "China",
+    "seasons": [
+      "Spring",
+      "Summer",
+      "Autumn",
+      "Winter"
+    ],
+    "FloraFauna": [
+      "Rare Birds"
+    ],
+    "Landscape": [
+      "Mountains",
+      "Deserts"
+    ]
+  },
+  {
+    "country": "Nepal",
+    "seasons": [
+      "Spring",
+      "Summer",
+      "Autumn",
+      "Winter"
+    ],
+    "FloraFauna": [
+      "Rare Birds",
+      "Alpine Wildlife"
+    ],
+    "Landscape": [
+      "Mountains"
+    ]
+  },
+  {
+    "country": "Switzerland",
+    "seasons": [
+      "Winter",
+      "Spring",
+      "Summer",
+      "Autumn"
+    ],
+    "FloraFauna": [
+      "Rare Birds",
+      "Alpine Wildlife"
+    ],
+    "Landscape": [
+      "Mountains"
+    ]
+  },
+  {
+    "country": "France",
+    "seasons": [
+      "Spring",
+      "Summer",
+      "Autumn",
+      "Winter"
+    ],
+    "FloraFauna": [
+      "Rare Birds"
+    ],
+    "Landscape": [
+      "Beaches",
+      "Mountains"
+    ]
+  },
+  {
+    "country": "Italy",
+    "seasons": [
+      "Spring",
+      "Summer",
+      "Autumn",
+      "Winter"
+    ],
+    "FloraFauna": [
+      "Marine Life"
+    ],
+    "Landscape": [
+      "Beaches",
+      "Mountains"
+    ]
+  },
+  {
+    "country": "Spain",
+    "seasons": [
+      "Summer",
+      "Spring",
+      "Autumn",
+      "Winter"
+    ],
+    "FloraFauna": [
+      "Marine Life"
+    ],
+    "Landscape": [
+      "Beaches",
+      "Mountains"
+    ]
+  },
+  {
+    "country": "Germany",
+    "seasons": [
+      "Spring",
+      "Summer",
+      "Autumn",
+      "Winter"
+    ],
+    "FloraFauna": [
+      "Rare Birds"
+    ],
+    "Landscape": [
+      "Mountains"
+    ]
+  },
+  {
+    "country": "Norway",
+    "seasons": [
+      "Winter",
+      "Spring",
+      "Summer"
+    ],
+    "FloraFauna": [
+      "Arctic Fauna",
+      "Rare Birds"
+    ],
+    "Landscape": [
+      "Tundra",
+      "Mountains"
+    ]
+  },
+  {
+    "country": "Sweden",
+    "seasons": [
+      "Winter",
+      "Spring",
+      "Summer",
+      "Autumn"
+    ],
+    "FloraFauna": [
+      "Arctic Fauna"
+    ],
+    "Landscape": [
+      "Tundra"
+    ]
+  },
+  {
+    "country": "Finland",
+    "seasons": [
+      "Winter",
+      "Spring",
+      "Summer",
+      "Autumn"
+    ],
+    "FloraFauna": [
+      "Arctic Fauna"
+    ],
+    "Landscape": [
+      "Tundra"
+    ]
+  },
+  {
+    "country": "Iceland",
+    "seasons": [
+      "Winter",
+      "Summer",
+      "Spring"
+    ],
+    "FloraFauna": [
+      "Arctic Fauna",
+      "Rare Birds"
+    ],
+    "Landscape": [
+      "Tundra",
+      "Beaches"
+    ]
+  },
+  {
+    "country": "Netherlands",
+    "seasons": [
+      "Spring",
+      "Summer",
+      "Autumn",
+      "Winter"
+    ],
+    "FloraFauna": [
+      "Rare Birds"
+    ],
+    "Landscape": [
+      "Beaches"
+    ]
+  },
+  {
+    "country": "United States",
+    "seasons": [
+      "Spring",
+      "Summer",
+      "Autumn",
+      "Winter"
+    ],
+    "FloraFauna": [
+      "Rare Birds",
+      "Marine Life"
+    ],
+    "Landscape": [
+      "Mountains",
+      "Deserts",
+      "Beaches"
+    ]
+  },
+  {
+    "country": "Canada",
+    "seasons": [
+      "Winter",
+      "Spring",
+      "Summer",
+      "Autumn"
+    ],
+    "FloraFauna": [
+      "Arctic Fauna",
+      "Marine Life"
+    ],
+    "Landscape": [
+      "Tundra",
+      "Mountains"
+    ]
+  },
+  {
+    "country": "Mexico",
+    "seasons": [
+      "Summer",
+      "Spring",
+      "Autumn",
+      "Winter"
+    ],
+    "FloraFauna": [
+      "Marine Life"
+    ],
+    "Landscape": [
+      "Beaches",
+      "Deserts"
+    ]
+  },
+  {
+    "country": "Brazil",
+    "seasons": [
+      "Summer",
+      "Spring",
+      "Autumn",
+      "Winter"
+    ],
+    "FloraFauna": [
+      "Tropical Rainforests",
+      "Rare Birds"
+    ],
+    "Landscape": [
+      "Beaches"
+    ]
+  },
+  {
+    "country": "Argentina",
+    "seasons": [
+      "Spring",
+      "Winter",
+      "Summer",
+      "Autumn"
+    ],
+    "FloraFauna": [
+      "Rare Birds"
+    ],
+    "Landscape": [
+      "Mountains"
+    ]
+  },
+  {
+    "country": "Australia",
+    "seasons": [
+      "Summer",
+      "Spring",
+      "Autumn",
+      "Winter"
+    ],
+    "FloraFauna": [
+      "Marine Life",
+      "Rare Birds"
+    ],
+    "Landscape": [
+      "Beaches",
+      "Deserts"
+    ]
+  },
+  {
+    "country": "New Zealand",
+    "seasons": [
+      "Spring",
+      "Winter",
+      "Summer",
+      "Autumn"
+    ],
+    "FloraFauna": [
+      "Rare Birds",
+      "Marine Life"
+    ],
+    "Landscape": [
+      "Mountains",
+      "Beaches"
+    ]
+  },
+  {
+    "country": "South Africa",
+    "seasons": [
+      "Summer",
+      "Spring",
+      "Autumn",
+      "Winter"
+    ],
+    "FloraFauna": [
+      "Rare Birds",
+      "Marine Life"
+    ],
+    "Landscape": [
+      "Beaches",
+      "Deserts"
+    ]
+  },
+  {
+    "country": "Kenya",
+    "seasons": [
+      "Summer",
+      "Winter"
+    ],
+    "FloraFauna": [
+      "Rare Birds",
+      "Savannah Wildlife"
+    ],
+    "Landscape": [
+      "Deserts",
+      "Savannahs"
+    ]
+  },
+  {
+    "country": "Tanzania",
+    "seasons": [
+      "Summer",
+      "Winter"
+    ],
+    "FloraFauna": [
+      "Rare Birds",
+      "Savannah Wildlife"
+    ],
+    "Landscape": [
+      "Deserts",
+      "Savannahs"
+    ]
+  },
+  {
+    "country": "Madagascar",
+    "seasons": [
+      "Summer",
+      "Winter"
+    ],
+    "FloraFauna": [
+      "Rare Birds",
+      "Tropical Rainforests"
+    ],
+    "Landscape": [
+      "Beaches"
+    ]
+  },
+  {
+    "country": "Morocco",
+    "seasons": [
+      "Summer",
+      "Winter",
+      "Spring"
+    ],
+    "FloraFauna": [
+      "Rare Birds"
+    ],
+    "Landscape": [
+      "Deserts",
+      "Mountains"
+    ]
+  },
+  {
+    "country": "Egypt",
+    "seasons": [
+      "Summer",
+      "Winter"
+    ],
+    "FloraFauna": [
+      "Rare Birds"
+    ],
+    "Landscape": [
+      "Deserts"
+    ]
+  },
+  {
+    "country": "United Arab Emirates",
+    "seasons": [
+      "Winter",
+      "Autumn"
+    ],
+    "FloraFauna": [
+      "Rare Birds"
+    ],
+    "Landscape": [
+      "Deserts"
+    ]
+  },
+  {
+    "country": "Saudi Arabia",
+    "seasons": [
+      "Winter",
+      "Spring"
+    ],
+    "FloraFauna": [
+      "Rare Birds"
+    ],
+    "Landscape": [
+      "Deserts",
+      "Mountains"
+    ]
+  },
+  {
+    "country": "Turkey",
+    "seasons": [
+      "Spring",
+      "Autumn",
+      "Summer",
+      "Winter"
+    ],
+    "FloraFauna": [
+      "Rare Birds"
+    ],
+    "Landscape": [
+      "Mountains",
+      "Beaches"
+    ]
+  },
+  {
+    "country": "Maldives",
+    "seasons": [
+      "Summer",
+      "Spring"
+    ],
+    "FloraFauna": [
+      "Marine Life"
+    ],
+    "Landscape": [
+      "Beaches"
+    ]
+  },
+  {
+    "country": "Sri Lanka",
+    "seasons": [
+      "Summer",
+      "Spring"
+    ],
+    "FloraFauna": [
+      "Marine Life",
+      "Tropical Rainforests"
+    ],
+    "Landscape": [
+      "Beaches",
+      "Mountains"
+    ]
+  },
+  {
+    "country": "Bhutan",
+    "seasons": [
+      "Spring",
+      "Autumn",
+      "Winter"
+    ],
+    "FloraFauna": [
+      "Rare Birds"
+    ],
+    "Landscape": [
+      "Mountains"
+    ]
+  },
+  {
+    "country": "Greenland",
+    "seasons": [
+      "Winter",
+      "Summer"
+    ],
+    "FloraFauna": [
+      "Arctic Fauna"
+    ],
+    "Landscape": [
+      "Tundra"
+    ]
+  },
+  {
+    "country": "United Kingdom",
+    "seasons": [
+      "Spring",
+      "Summer",
+      "Autumn",
+      "Winter"
+    ],
+    "FloraFauna": [
+      "Rare Birds"
+    ],
+    "Landscape": [
+      "Mountains",
+      "Beaches"
+    ]
+  },
+  {
+    "country": "Peru",
+    "seasons": [
+      "Winter",
+      "Summer",
+      "Spring"
+    ],
+    "FloraFauna": [
+      "Tropical Rainforests",
+      "Rare Birds"
+    ],
+    "Landscape": [
+      "Mountains",
+      "Deserts"
+    ]
+  },
+  {
+    "country": "Costa Rica",
+    "seasons": [
+      "Spring",
+      "Summer"
+    ],
+    "FloraFauna": [
+      "Tropical Rainforests",
+      "Rare Birds"
+    ],
+    "Landscape": [
+      "Beaches",
+      "Mountains"
+    ]
+  },
+  {
+    "country": "Chile",
+    "seasons": [
+      "Spring",
+      "Summer",
+      "Autumn",
+      "Winter"
+    ],
+    "FloraFauna": [
+      "Rare Birds"
+    ],
+    "Landscape": [
+      "Deserts",
+      "Mountains"
+    ]
+  },
+  {
+    "country": "Greece",
+    "seasons": [
+      "Spring",
+      "Summer",
+      "Autumn"
+    ],
+    "FloraFauna": [
+      "Marine Life"
+    ],
+    "Landscape": [
+      "Beaches",
+      "Mountains"
+    ]
+  },
+  {
+    "country": "Colombia",
+    "seasons": [
+      "Summer",
+      "Spring"
+    ],
+    "FloraFauna": [
+      "Tropical Rainforests",
+      "Rare Birds"
+    ],
+    "Landscape": [
+      "Mountains",
+      "Beaches"
+    ]
+  },
+  {
+    "country": "Ecuador",
+    "seasons": [
+      "Summer",
+      "Winter",
+      "Spring"
+    ],
+    "FloraFauna": [
+      "Marine Life",
+      "Tropical Rainforests"
+    ],
+    "Landscape": [
+      "Mountains",
+      "Beaches"
+    ]
+  },
+  {
+    "country": "Philippines",
+    "seasons": [
+      "Spring",
+      "Summer"
+    ],
+    "FloraFauna": [
+      "Marine Life",
+      "Tropical Rainforests"
+    ],
+    "Landscape": [
+      "Beaches",
+      "Mountains"
+    ]
+  }
+]
