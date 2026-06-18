@@ -1,6 +1,7 @@
 from fastapi import APIRouter, HTTPException
+from fastapi.responses import StreamingResponse
 from app.models.schemas import SearchRequest, SearchResponse
-from app.services.search_service import process_search_query
+from app.services.search_service import process_search_query, process_search_query_stream
 
 router = APIRouter(prefix="/search", tags=["Search"])
 
@@ -12,5 +13,14 @@ def search(request: SearchRequest):
         return SearchResponse(
             answer=result["answer"]
         )
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@router.post("/stream/")
+def search_stream(request: SearchRequest):
+    """Process a query and stream the text answer back to the client word-by-word."""
+    try:
+        generator = process_search_query_stream(request.query)
+        return StreamingResponse(generator, media_type="text/plain")
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

@@ -1,8 +1,9 @@
 from qdrant_client.http import models
 
 from app.config import settings
+from app.config import settings
 from app.database.qdrant_client import db_client
-from app.services.llm_service import extract_search_intent, generate_final_answer
+from app.services.llm_service import extract_search_intent, generate_final_answer, generate_final_answer_stream
 
 def build_qdrant_filter(intent) -> models.Filter:
     """Builds a Qdrant filter based on the extracted search intent."""
@@ -64,12 +65,12 @@ def process_search_query(query: str) -> dict:
     qdrant_filter = build_qdrant_filter(intent)
     
     # 3. Search Qdrant via FastEmbed
-    print("Searching Qdrant...")
+    print(f"Searching Qdrant (limit={intent.result_limit})...")
     search_results = db_client.query(
         collection_name=settings.collection_name,
         query_text=intent.search_query,
         query_filter=qdrant_filter,
-        limit=5  # Get top 5 matches
+        limit=intent.result_limit
     )
     
     # Extract matching country payloads (db_client.query returns QueryResponse where we get metadata)
@@ -95,3 +96,23 @@ def process_search_query(query: str) -> dict:
         "answer": answer,
         "context_countries": context_countries
     }
+
+def process_search_query_stream(query: str):
+    """End-to-end processing that yields answer chunks for streaming."""
+    print(f"Extracting intent for query: '{query}'")
+    intent = extract_search_intent(query)
+    qdrant_filter = build_qdrant_filter(intent)
+    
+    print(f"Searching Qdrant (limit={intent.result_limit})...")
+    search_results = db_client.query(
+        collection_name=settings.collection_name,
+        query_text=intent.search_query,
+        query_filter=qdrant_filter,
+        limit=intent.result_limit
+    )
+    
+    context_countries = [hit.metadata for hit in search_results if hit.metadata]
+    print(f"Generating streaming answer using {len(context_countries)} matching countries...")
+    
+    return generate_final_answer_stream(query, context_countries)
+
