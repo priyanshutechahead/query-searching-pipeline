@@ -45,7 +45,7 @@ app.add_middleware(
 app.include_router(ingest.router)
 app.include_router(search.router)
 
-@app.get("/")
+@app.api_route("/", methods=["GET", "HEAD"])
 def root():
     return {"message": "Welcome to the Country Intelligence RAG API"}
 
