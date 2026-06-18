@@ -2,7 +2,7 @@ import json
 from google import genai
 from google.genai import types
 from pydantic import BaseModel
-from tenacity import retry, stop_after_attempt, wait_exponential
+from tenacity import retry, stop_after_attempt, wait_exponential, RetryError
 
 from app.config import settings
 from app.models.schemas import SearchIntent
@@ -10,8 +10,8 @@ from app.models.schemas import SearchIntent
 client = genai.Client(api_key=settings.gemini_api_key)
 
 @retry(wait=wait_exponential(multiplier=1, min=2, max=10), stop=stop_after_attempt(4))
-def extract_search_intent(query: str) -> SearchIntent:
-    """Extracts search intent and filters from the user query."""
+def _extract_search_intent_with_retry(query: str) -> SearchIntent:
+    """Internal retryable call to Gemini for intent extraction."""
     prompt = f"""
     You are an expert intent extractor for a country database search engine.
     Extract the core semantic search intent and any specific metadata filters from the user's query.
@@ -32,10 +32,17 @@ def extract_search_intent(query: str) -> SearchIntent:
     intent_dict = json.loads(response.text)
     return SearchIntent.model_validate(intent_dict)
 
+def extract_search_intent(query: str) -> SearchIntent:
+    """Extracts search intent, unwrapping RetryError to surface the real exception."""
+    try:
+        return _extract_search_intent_with_retry(query)
+    except RetryError as e:
+        # Unwrap the last real exception so callers see the actual error
+        raise e.last_attempt.exception() from e
+
 @retry(wait=wait_exponential(multiplier=1, min=2, max=10), stop=stop_after_attempt(4))
-def generate_final_answer(query: str, context_countries: list[dict]) -> str:
-    """Generates the final answer deterministically using temperature=0.3"""
-    
+def _generate_final_answer_with_retry(query: str, context_countries: list[dict]) -> str:
+    """Internal retryable call to Gemini for answer generation."""
     context_str = json.dumps(context_countries, indent=2)
     
     prompt = f"""
@@ -62,3 +69,10 @@ def generate_final_answer(query: str, context_countries: list[dict]) -> str:
     )
     
     return response.text
+
+def generate_final_answer(query: str, context_countries: list[dict]) -> str:
+    """Generates the final answer, unwrapping RetryError to surface the real exception."""
+    try:
+        return _generate_final_answer_with_retry(query, context_countries)
+    except RetryError as e:
+        raise e.last_attempt.exception() from e
