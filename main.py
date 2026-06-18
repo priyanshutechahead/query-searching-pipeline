@@ -1,52 +1,58 @@
-from router import classify_query
-from app.services.query_service import handle_structured_query, generate_final_answer
-from llm_service import generate_answer as semantic_generate_answer
+import uvicorn
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from contextlib import asynccontextmanager
 
-def run_pipeline(question):
-    print(f"--- Processing: {question} ---")
-    
-    # 1. Classify the query
-    category = classify_query(question)
-    print(f"Category: {category}")
-    
-    if category == "API_ONLY":
-        # Use structured query engine to get ALL relevant data
-        data = handle_structured_query(question)
-        if not data:
-            return "No matching countries found in the database."
-        
-        # Generate answer using the full context of matching countries
-        answer = generate_final_answer(question, data)
-        return answer
-    
-    elif category == "WEB_SEARCH":
-        # Placeholder for web search logic
-        return "This query requires web search which is not implemented yet."
-    
-    elif category == "API_AND_WEB":
-        # Hybrid approach
-        data = handle_structured_query(question)
-        # Combine with web search results...
-        return "Hybrid query results (partial): " + str([c.get('country_name') for c in data])
-    
+from app.config import settings
+from app.routers import ingest, search
+from app.database.qdrant_client import is_collection_populated
+from app.services.ingestion_service import ingest_data
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Startup: Check if DB is populated, if not, ingest data automatically
+    print("Checking Qdrant database status...")
+    if not is_collection_populated():
+        print("Database is empty. Starting automatic data ingestion...")
+        result = ingest_data()
+        if result.get("status") == "success":
+            print(f"Automatic ingestion successful: {result.get('message')}")
+        else:
+            print(f"Automatic ingestion failed: {result.get('message')}")
     else:
-        # Default to standard RAG (semantic search)
-        # Note: In a real system, you'd perform vector search here and get top-k chunks.
-        # But we know that's what failed for the user's specific query.
-        print("Falling back to semantic search (RAG)...")
-        # mock context for now as we don't have the vector search logic
-        context = "Top 5 chunks would go here..." 
-        return semantic_generate_answer(question, context)
+        print("Database is already populated. Ready for search!")
+    
+    yield
+    # Shutdown logic goes here (if any)
+
+app = FastAPI(
+    title="Country Intelligence RAG API",
+    description="Deterministic RAG Backend using FastAPI, Qdrant, and Gemini.",
+    version="1.0.0",
+    lifespan=lifespan
+)
+
+# CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Include Routers
+app.include_router(ingest.router)
+app.include_router(search.router)
+
+@app.get("/")
+def root():
+    return {"message": "Welcome to the Country Intelligence RAG API"}
 
 if __name__ == "__main__":
-    test_queries = [
-        "tell me the countries whose population is above 50 cr in asia",
-        "Which countries in Europe have mountains in their landscape?",
-        "List countries in Asia that speak English.",
-        "What are the seasons in India?",
-        "recommend some places to visit in Japan"
-    ]
-    
-    for q in test_queries:
-        result = run_pipeline(q)
-        print(f"Result: {result}\n")
+    uvicorn.run(
+        "main:app", 
+        host=settings.host, 
+        port=settings.port, 
+        reload=settings.debug
+    )
