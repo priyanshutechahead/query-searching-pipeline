@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+qdrant-client
+google-genai
+pydantic
+pydantic-settings
+python-dotenv
+fastembed
+tenacity
